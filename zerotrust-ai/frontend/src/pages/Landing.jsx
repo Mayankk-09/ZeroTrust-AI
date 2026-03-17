@@ -12,7 +12,7 @@ export default function Landing() {
         className="pt-16 pb-24 text-center"
       >
         <motion.p
-          className="text-cyan-400 font-medium tracking-wider uppercase text-sm mb-4"
+          className="mb-4 text-sm font-medium tracking-wider uppercase text-cyan-400"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
@@ -20,7 +20,7 @@ export default function Landing() {
           Identity Document Fraud Detection
         </motion.p>
         <motion.h1
-          className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-slate-100 via-cyan-200 to-violet-300 bg-clip-text text-transparent"
+          className="mb-6 text-4xl font-bold text-transparent md:text-6xl bg-gradient-to-r from-slate-100 via-cyan-200 to-violet-300 bg-clip-text"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.5 }}
@@ -28,7 +28,7 @@ export default function Landing() {
           ZeroTrust AI
         </motion.h1>
         <motion.p
-          className="text-slate-400 text-lg max-w-2xl mx-auto mb-12"
+          className="max-w-2xl mx-auto mb-12 text-lg text-slate-400"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5 }}
@@ -44,7 +44,7 @@ export default function Landing() {
         >
           <Link to="/upload">
             <motion.span
-              className="inline-block px-8 py-4 rounded-xl font-semibold bg-gradient-to-r from-cyan-500/20 to-violet-500/20 border border-cyan-500/30 text-cyan-300 hover:border-cyan-400/50 hover:from-cyan-500/30 hover:to-violet-500/30 transition-all"
+              className="inline-block px-8 py-4 font-semibold transition-all border rounded-xl bg-gradient-to-r from-cyan-500/20 to-violet-500/20 border-cyan-500/30 text-cyan-300 hover:border-cyan-400/50 hover:from-cyan-500/30 hover:to-violet-500/30"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
             >
@@ -53,7 +53,7 @@ export default function Landing() {
           </Link>
           <Link to="/architecture">
             <motion.span
-              className="inline-block px-8 py-4 rounded-xl font-semibold border border-white/10 text-slate-300 hover:border-white/20 hover:bg-white/5 transition-all"
+              className="inline-block px-8 py-4 font-semibold transition-all border rounded-xl border-white/10 text-slate-300 hover:border-white/20 hover:bg-white/5"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
             >
@@ -63,21 +63,44 @@ export default function Landing() {
         </motion.div>
       </motion.section>
 
-      <section className="grid md:grid-cols-3 gap-6 py-12">
+      <section className="grid gap-6 py-12 md:grid-cols-3">
         {[
           { title: 'CNN Classification', desc: 'EfficientNet-B0 trained to classify documents as real or fake.', icon: '🔬', delay: 0.1 },
           { title: 'Image Forensics', desc: 'ELA, edge consistency, and noise analysis to spot manipulation.', icon: '🖼️', delay: 0.2 },
           { title: 'OCR & Text', desc: 'Extract text and flag anomalies for consistency and tampering.', icon: '📄', delay: 0.3 },
         ].map(({ title, desc, icon, delay }) => (
           <Link key={title} to="/architecture">
-            <GlassCard delay={delay} className="p-6 h-full block">
-              <span className="text-3xl mb-3 block">{icon}</span>
-              <h3 className="text-lg font-semibold text-slate-100 mb-2">{title}</h3>
-              <p className="text-slate-400 text-sm">{desc}</p>
+            <GlassCard delay={delay} className="block h-full p-6">
+              <span className="block mb-3 text-3xl">{icon}</span>
+              <h3 className="mb-2 text-lg font-semibold text-slate-100">{title}</h3>
+              <p className="text-sm text-slate-400">{desc}</p>
             </GlassCard>
           </Link>
         ))}
       </section>
+      <section className="flex flex-col items-center justify-center px-6 py-16">
+
+  <div className="w-full max-w-md p-4 bg-transparent border border-gray-200 shadow-sm rounded-2xl">
+
+    {/* Image */}
+    <div className="flex items-center justify-center w-full overflow-hidden bg-gray-100 h-128 rounded-xl">
+      {/* Replace src with your image */}
+      <img
+        src="/img009.jpeg"
+        alt="OCR / Computer Vision"
+        className="object-cover w-full h-full rounded-xl"
+      />
+     
+    </div>
+
+    {/* Minimal Caption */}
+    <p className="mt-4 text-sm text-center text-gray-500">
+      Detecting what the human eye cannot see
+    </p>
+
+  </div>
+
+</section>
     </div>
   )
 }
